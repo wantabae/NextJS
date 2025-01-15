@@ -12,3 +12,15 @@ export async function POST(req: Request) {
   const task = await prisma.task.create({ data: body });
   return new Response(JSON.stringify(task), { status: 201 });
 }
+import { NextResponse } from 'next/server';
+
+// GET request
+export async function GET() {
+  return NextResponse.json({ message: 'API is working!' });
+}
+
+// POST request (example)
+export async function POST(req: Request) {
+  const body = await req.json();
+  return NextResponse.json({ message: 'Data received', data: body });
+}
